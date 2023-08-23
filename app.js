@@ -1,25 +1,71 @@
 const express = require("express");
 const app = express();
 
-// Make everything inside of public/ available
+app.set("views", __dirname + "/views"); //tells our Express app where to look for our views
+app.set("view engine", "hbs"); //sets HBS as the template engine
+
+
+// Makes everything inside of public/ available
 app.use(express.static('public'));
 
 
 // app.get(path, code)
+//res.render (path, data)
 
 
 // Home Page
 app.get("/", (req, res, next) => {
-    res.sendFile(__dirname + '/views/homepage.html');
+    res.render('home');
 });
 
 
 // Contact Page
 app.get("/contact", (req, res, next) => {
-    res.sendFile(__dirname + '/views/contact.html');
-})
+    res.render('contact');
+});
+
+//menu
+app.get("/pizzas/margarita", (req, res) =>{
+    
+    const dataMargarita = {
+        title: 'Pizza Margarita',
+        price: 12,
+        recommendedDrink: 'beer',
+        imageFile: 'pizza-margarita.jpg',
+        ingredients: ['mozzarella', 'tomato sauce', 'basilicum'],
+      };
+
+
+    
+    res.render("product", dataMargarita)
+});
+
+app.get("/pizzas/veggie", (req, res) => {
+    
+    const dataVeggie = {
+        title: 'Veggie Pizza',
+        price: 15,
+        recommendedDrink: 'power smoothie',
+        imageFile: 'pizza-veggie.jpg',
+        ingredients: ['cherry tomatoes', 'basilicum', 'olives'],
+      };
+    
+    res.render("product", dataVeggie)
+});
+
+app.get("/pizzas/seafood", (req, res) => {
+
+    const dataSeafood = {
+        title: 'Seafood Pizza',
+        price: 20,
+        recommendedDrink: 'white wine',
+        imageFile: 'pizza-seafood.jpg',
+        ingredients: ['tomato sauce', 'garlic', 'prawn'],
+      };
+
+    res.render("product", dataSeafood)
+});
 
 
 
-
-app.listen(3000, () => console.log('My first app listening on port 3000! '));
+app.listen(3000, () => console.log('I am listening! '));

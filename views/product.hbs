@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+
+<body>
+    <h1>Tittle: {{title}}</h1>
+    <h1>Price: {{price}}</h1>
+    
+    <ul>
+        <h2>Ingredients</h2>
+
+        {{#each ingredients}}
+        <li>{{this}}</li>
+        {{/each}}
+
+    </ul>
+
+    <img src="/images/{{imageFile}}" alt="">
+
+   
+</body>
+
+</html>
