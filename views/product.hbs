@@ -8,19 +8,24 @@
 </head>
 
 <body>
-    <h1>Tittle: {{title}}</h1>
-    <h1>Price: {{price}}</h1>
+     {{#if price}}
+        <h2>Price: {{price}}</h2>
+    {{else}}
+        <h2>Price upon request</h2>
+    {{/if}}
     
     <ul>
-        <h2>Ingredients</h2>
-
         {{#each ingredients}}
-        <li>{{this}}</li>
+            <li>{{this.ingredientName}}</li>
         {{/each}}
-
     </ul>
 
+
     <img src="/images/{{imageFile}}" alt="">
+
+
+    {{> ctaOrderNow title=title}}
+
 
    
 </body>
