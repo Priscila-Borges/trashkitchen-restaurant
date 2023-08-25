@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<section class="product-details">
+    <h1>{{title}}</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-</head>
-
-<body>
-     {{#if price}}
+    {{#if price}}
         <h2>Price: {{price}}</h2>
     {{else}}
         <h2>Price upon request</h2>
     {{/if}}
-    
+
+
+    {{log ingredients}}
+
     <ul>
         {{#each ingredients}}
-            <li>{{this.ingredientName}}</li>
+            <li>{{this}}</li>
         {{/each}}
     </ul>
+
+    <p>{{chef}}</p>
 
 
     <img src="/images/{{imageFile}}" alt="">
@@ -26,8 +24,5 @@
 
     {{> ctaOrderNow title=title}}
 
+</section>
 
-   
-</body>
-
-</html>

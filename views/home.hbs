@@ -4,5 +4,43 @@
 
     <img src="/images/home.jpg" alt="Tasty pizzas">
 
+   <section>
+    <h3>Search by price:</h3>
+
+    <form method="GET" action="/pizzas">
+
+        Enter max price:
+        <input type="number" min="1" min="99" name="maxPrice" >
+
+        <button type="submit">Search</button>
+
+    </form>
+
+</section>
+
+
+section>
+    <h3>Login:</h3>
+
+    <form method="POST" action="/login">
+
+        <label>
+            Enter your email:
+            <input type="email" name="email" >
+        </label>
+
+        <label>
+            Enter your password:
+            <input type="password" name="pwd" >
+        </label>
+
+        <button type="submit">Search</button>
+
+    </form>
+
+</section>
+
+</section>
+
    {{> ctaOrderNow}}
 
